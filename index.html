@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>Octave</title>
+    <style>
+        @font-face {
+            font-family: 'Kievit Serif';
+            src: url('./fonts/KievitSerif.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Kievit Serif Light Italic';
+            src: url('./fonts/KievitSerif-LightItalic.ttf') format('truetype');
+            font-weight: 300;
+            font-style: italic;
+            font-display: swap;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            min-height: 100dvh;
+            background: linear-gradient(135deg, #ede4dc 0%, #ddd4cb 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: system-ui, sans-serif;
+            position: relative;
+            padding: 2rem 1rem;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+            opacity: 0.2;
+            pointer-events: none;
+            mix-blend-mode: multiply;
+            z-index: 1;
+        }
+        
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+        
+        .logo {
+            width: clamp(180px, 60vw, 422px);
+            height: auto;
+            opacity: 0;
+            animation: fadeIn 2.5s ease-out 0.5s forwards;
+            position: relative;
+            z-index: 0;
+            margin-bottom: clamp(-20px, -4vw, -30px);
+        }
+        
+        .tagline {
+            padding: 0 1.25rem;
+            margin-top: 0;
+            font-size: clamp(1rem, 4vw, 1.75rem);
+            letter-spacing: -0.0015em;
+            line-height: 1.3;
+            color: #6d5d47;
+            opacity: 0;
+            animation: fadeIn 2.5s ease-out 1s forwards;
+            text-align: center;
+            font-weight: 400;
+            font-family: 'Kievit Serif', serif;
+            max-width: clamp(280px, 90vw, 580px);
+            padding: 0 1rem;
+        }
+        
+        .footer {
+            padding: 0 1rem;
+            text-align: center;
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: clamp(0.625rem, 1.5vw, 0.75rem);
+            color: #6d5d47;
+            font-family: 'Kievit Serif', serif;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0;
+            animation: fadeIn 2.5s ease-out 1.5s forwards;
+            z-index: 2;
+        }
+        
+        .footer a {
+            padding: 0.25rem 0.5rem;
+            display: inline-block;
+            color: #6d5d47;
+            text-decoration: none;
+            position: relative;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer a::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 0;
+            height: 0.5px;
+            background-color: #6d5d47;
+            transition: width 0.8s ease;
+        }
+        
+        .footer a:hover::after {
+            width: 100%;
+        }
+        
+        .italic-text {
+            font-family: 'Kievit Serif Light Italic', serif;
+            font-weight: 300;
+            font-style: italic;
+        }
+        
+        .flourishing {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .flourishing::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #6d5d47;
+            border-radius: 1px;
+            animation: drawLine 3s ease-out 2s forwards;
+        }
+        
+        @keyframes drawLine {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <svg class="logo" viewBox="-50 -50 250 250" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <filter id="emboss" x="-200%" y="-200%" width="500%" height="500%">
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="1.5" result="blur"/>
+                    <feOffset in="blur" dx="1" dy="-1" result="offsetBlurHighlight"/>
+                    <feFlood flood-color="#ffffff" flood-opacity="0.6"/>
+                    <feComposite in2="offsetBlurHighlight" operator="in" result="highlight"/>
+                    <feOffset in="blur" dx="-1" dy="1" result="offsetBlurShadow"/>
+                    <feFlood flood-color="#6d5d47" flood-opacity="0.9"/>
+                    <feComposite in2="offsetBlurShadow" operator="in" result="shadow"/>
+                    <feMerge>
+                        <feMergeNode in="shadow"/>
+                        <feMergeNode in="highlight"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+                <linearGradient id="surfaceGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#eae2da;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#e6ddd5;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <g filter="url(#emboss)">
+                <path d="M104.662387,128.120146 C115.846865,128.120146 127.030317,128.125272 138.214795,128.117071 C141.541239,128.113995 141.636544,128.087343 141.373175,124.397992 C140.961212,118.615379 140.724487,112.812263 139.864695,107.073729 C138.432049,97.5238578 136.078123,88.3286722 131.175563,80.0612059 C123.151515,66.5308542 109.970761,60.5442451 96.6875287,64.6251853 C85.7469494,67.9865023 78.8337659,76.1770857 74.3523915,86.9888608 C69.2950893,99.1917025 68.5347006,112.251531 67.9854171,125.346214 C67.8931867,127.567615 68.5101058,128.190878 70.5863154,128.171841 C81.9439811,128.06479 93.3036965,128.120146 104.662387,128.120146 M104.751415,136.670751 C93.2206012,136.670751 81.6897873,136.707654 70.1610231,136.63059 C68.4424686,136.619496 67.8757658,137.128969 68.0059128,138.984395 C68.4844846,145.793089 68.5746651,152.639712 69.6158406,159.391001 C70.9849454,168.259116 73.1123867,176.869931 77.5998942,184.610439 C85.7602097,198.682971 99.8990862,204.91146 113.693637,200.308775 C123.757992,196.950557 129.797015,188.905595 134.067269,179.108743 C139.636943,166.335009 140.815439,152.593583 141.478471,138.747597 C141.586073,136.494434 140.460866,136.658449 139.080488,136.6605 C127.636781,136.681002 116.194098,136.671776 104.751415,136.670751 M104.518552,56.1598533 C121.557597,56.3371965 136.65878,61.8625146 148.611834,75.4420856 C155.827321,83.6408785 159.867011,93.7268904 162.918811,104.342882 C164.221308,108.874873 165.45822,113.431466 166.856022,117.930654 C168.679108,123.799382 172.082408,128.200159 177.497355,130.663488 C178.330502,131.041752 179.537695,131.31443 179.616603,132.505602 C179.706784,133.873093 178.441179,134.263658 177.552693,134.737256 C171.522878,137.949937 168.147247,143.448602 166.075138,150.049256 C163.501911,158.244973 161.745436,166.761549 158.13513,174.548249 C148.785022,194.710022 133.877523,206.9016 112.949431,209.906184 C93.1004347,212.755977 75.6678735,206.99386 61.3885656,191.67776 C52.6266822,182.279594 48.1924518,170.364794 45.4757556,157.604282 C44.6272364,153.616622 43.7223542,149.645364 42.3798901,145.796093 C40.8591141,141.43632 38.2469456,138.305648 34.1529428,136.622425 C32.3718722,135.8905 30.6092478,135.082717 28.9122093,134.151921 C27.4559945,133.354389 27.0778501,132.348761 28.9429527,131.491773 C30.3766223,130.83263 31.7703254,130.024847 33.2562588,129.556374 C38.0378902,128.049469 40.7105208,124.455449 42.3645184,119.621052 C44.5524273,113.226445 45.5362177,106.485352 47.4607577,100.013862 C54.9385897,74.8577755 71.121942,60.8056309 95.1336015,56.6539541 C95.9944182,56.5053138 96.8470365,56.2080332 97.7078531,56.1824056 C99.9767198,56.1157738 102.248661,56.1598533 104.518552,56.1598533" 
+                      fill="url(#surfaceGradient)"
+                      transform="translate(-27, -55)"/>
+            </g>
+        </svg>
+        
+        <div class="tagline">Octave collaborates with <span class="italic-text">founders</span> and <span class="italic-text">investors</span> to create flourishing businesses.</div>
+    </div>
+    
+    <div class="footer">
+        920 Broadway, NYC • <a href="mailto:jeremy@octavecap.com">Contact</a>
+    </div>
+</body>
+</html>
