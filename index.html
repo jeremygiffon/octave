@@ -150,21 +150,25 @@
         .flourishing::after {
             content: '';
             position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #6d5d47;
-            border-radius: 1px;
-            animation: drawLine 3s ease-out 2s forwards;
+            bottom: -6px;
+            left: -3px;
+            width: calc(100% + 6px);
+            height: 8px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 8' preserveAspectRatio='none'%3E%3Cpath d='M2,6 Q30,3 60,4 Q90,5 118,3' stroke='%236d5d47' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-dasharray='116' stroke-dashoffset='116' pathLength='116'/%3E%3C/svg%3E");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            opacity: 0;
+            animation: drawHandwrittenSVG 2.5s cubic-bezier(0.25, 0.1, 0.25, 1) 2.2s forwards;
         }
         
-        @keyframes drawLine {
+        @keyframes drawHandwrittenSVG {
             0% {
-                width: 0;
+                opacity: 1;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 8' preserveAspectRatio='none'%3E%3Cpath d='M2,6 Q30,3 60,4 Q90,5 118,3' stroke='%236d5d47' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-dasharray='116' stroke-dashoffset='116' pathLength='116'/%3E%3C/svg%3E");
             }
             100% {
-                width: 100%;
+                opacity: 1;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 8' preserveAspectRatio='none'%3E%3Cpath d='M2,6 Q30,3 60,4 Q90,5 118,3' stroke='%236d5d47' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-dasharray='116' stroke-dashoffset='0' pathLength='116'/%3E%3C/svg%3E");
             }
         }
         
@@ -186,7 +190,6 @@
             
             body {
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-                padding: max(env(safe-area-inset-top), 1.5rem) max(env(safe-area-inset-right), 1rem) max(env(safe-area-inset-bottom), 1.5rem) max(env(safe-area-inset-left), 1rem);
                 /* Extend behind status bar on iOS */
                 padding-top: env(safe-area-inset-top, 1.5rem);
                 padding-bottom: env(safe-area-inset-bottom, 1.5rem);
@@ -209,10 +212,11 @@
             
             .tagline {
                 font-family: 'Kievit Serif', -apple-system, serif;
-                font-size: clamp(1.29rem, 6.3vw, 1.58rem);
+                font-size: clamp(1.15rem, 4.6vw, 2.01rem);
                 letter-spacing: -0.015em;
                 line-height: 1.35;
                 word-spacing: 0.05em;
+                max-width: clamp(320px, 90vw, 667px);
             }
             
             .footer {
@@ -316,6 +320,12 @@
                 transition: width 0.3s ease;
             }
             
+            .flourishing::after {
+                animation: fadeInSimple 0.5s ease-out 2s forwards;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 8' preserveAspectRatio='none'%3E%3Cpath d='M2,6 Q30,3 60,4 Q90,5 118,3' stroke='%236d5d47' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+                opacity: 1;
+            }
+            
             @keyframes fadeInSimple {
                 from { opacity: 0; }
                 to { opacity: 1; }
@@ -369,7 +379,7 @@
             </g>
         </svg>
         
-        <div class="tagline">Octave collaborates with <span class="italic-text">founders</span> and <span class="italic-text">investors</span> to create flourishing businesses.</div>
+        <div class="tagline">Octave collaborates with <span class="italic-text">founders</span> and <span class="italic-text">investors</span> to create <span class="flourishing">flourishing</span> businesses.</div>
     </div>
     
     <div class="footer">
