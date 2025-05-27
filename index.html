@@ -40,11 +40,8 @@
             width: 100%;
             -webkit-text-size-adjust: 100%;
             -ms-text-size-adjust: 100%;
-            /* Set background on html to ensure full coverage */
-             /* NEW line – iOS uses only background-color for the unsafe area */
-  background-color: #ede4dc;
+            background-color: #ede4dc;
             background: linear-gradient(135deg, #ede4dc 0%, #ddd4cb 100%);
-            background-attachment: fixed;
         }
         
         body {
@@ -246,10 +243,7 @@
             body::before {
                 /* Ensure texture covers full viewport including safe areas */
                 position: fixed;
-                top: -50px;
-                left: -50px;
-                right: -50px;
-                bottom: -50px;
+               inset: 0;  
                 width: calc(100% + 100px);
                 height: calc(100% + 100px);
             }
