@@ -223,10 +223,26 @@
                 -webkit-touch-callout: none;
             }
             
+            html::before {
+                /* Force full coverage on mobile */
+                position: fixed;
+                top: -100px;
+                left: -100px;
+                right: -100px;
+                bottom: -100px;
+                width: calc(100vw + 200px);
+                height: calc(100vh + 200px);
+                height: calc(100dvh + 200px);
+                background: linear-gradient(135deg, #ede4dc 0%, #ddd4cb 100%);
+                z-index: -1;
+            }
+            
             body {
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
                 /* Remove safe area insets - fill edge to edge */
                 padding: 1.5rem 1rem;
+                background: linear-gradient(135deg, #ede4dc 0%, #ddd4cb 100%);
+                background-attachment: fixed;
             }
             
             body::before {
