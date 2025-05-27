@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="light-content">
     <meta name="apple-mobile-web-app-title" content="Octave">
@@ -158,7 +158,7 @@
             background-size: 100% 100%;
             background-repeat: no-repeat;
             opacity: 0;
-            animation: drawHandwrittenSVG 2.5s cubic-bezier(0.25, 0.1, 0.25, 1) 2.2s forwards;
+            animation: drawHandwrittenSVG 1.2s ease-out 2.2s forwards;
         }
         
         @keyframes drawHandwrittenSVG {
@@ -166,9 +166,13 @@
                 opacity: 1;
                 background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 8' preserveAspectRatio='none'%3E%3Cpath d='M2,6 Q30,3 60,4 Q90,5 118,3' stroke='%236d5d47' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-dasharray='116' stroke-dashoffset='116' pathLength='116'/%3E%3C/svg%3E");
             }
-            100% {
+            99% {
                 opacity: 1;
                 background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 8' preserveAspectRatio='none'%3E%3Cpath d='M2,6 Q30,3 60,4 Q90,5 118,3' stroke='%236d5d47' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-dasharray='116' stroke-dashoffset='0' pathLength='116'/%3E%3C/svg%3E");
+            }
+            100% {
+                opacity: 1;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 8' preserveAspectRatio='none'%3E%3Cpath d='M2,6 Q30,3 60,4 Q90,5 118,3' stroke='%236d5d47' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
             }
         }
         
@@ -190,11 +194,8 @@
             
             body {
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-                /* Extend behind status bar on iOS */
-                padding-top: env(safe-area-inset-top, 1.5rem);
-                padding-bottom: env(safe-area-inset-bottom, 1.5rem);
-                padding-left: env(safe-area-inset-left, 1rem);
-                padding-right: env(safe-area-inset-right, 1rem);
+                /* Remove safe area insets - fill edge to edge */
+                padding: 1.5rem 1rem;
             }
             
             body::before {
@@ -216,12 +217,12 @@
                 letter-spacing: -0.015em;
                 line-height: 1.35;
                 word-spacing: 0.05em;
-                max-width: clamp(320px, 90vw, 667px);
+                max-width: clamp(400px, 95vw, 667px);
             }
             
             .footer {
                 font-family: 'Kievit Serif', -apple-system, serif;
-                bottom: max(env(safe-area-inset-bottom), 1.5rem);
+                bottom: 1.5rem;
                 letter-spacing: 0.12em;
             }
             
@@ -258,7 +259,7 @@
             
             .tagline {
                 font-size: clamp(1.15rem, 5.75vw, 1.44rem);
-                max-width: 85vw;
+                max-width: 90vw;
                 line-height: 1.4;
                 padding: 0 0.75rem;
             }
@@ -271,8 +272,7 @@
         /* iPhone Mini specific */
         @media screen and (max-width: 375px) and (max-height: 812px) {
             body {
-                padding-top: max(env(safe-area-inset-top), 1.25rem);
-                padding-bottom: max(env(safe-area-inset-bottom), 1.25rem);
+                padding: 1.25rem 1rem;
             }
             
             .logo {
@@ -288,8 +288,7 @@
         /* Mobile landscape optimization */
         @media screen and (max-width: 768px) and (orientation: landscape) and (max-height: 500px) {
             body {
-                padding-top: max(env(safe-area-inset-top), 1rem);
-                padding-bottom: max(env(safe-area-inset-bottom), 1rem);
+                padding: 1rem;
             }
             
             .logo {
@@ -304,7 +303,7 @@
             
             .footer {
                 font-size: clamp(0.5rem, 1.8vw, 0.6rem);
-                bottom: max(env(safe-area-inset-bottom), 1rem);
+                bottom: 1rem;
             }
         }
         
@@ -379,7 +378,7 @@
             </g>
         </svg>
         
-        <div class="tagline">Octave collaborates with <span class="italic-text">founders</span> and <span class="italic-text">investors</span> to create <span class="flourishing">flourishing</span> businesses.</div>
+        <div class="tagline">Octave solves coordination problems between <span class="italic-text">founders</span>, <span class="italic-text">investors</span> and <span class="italic-text">operators</span> to create <span class="flourishing">flourishing</span> businesses.</div>
     </div>
     
     <div class="footer">
