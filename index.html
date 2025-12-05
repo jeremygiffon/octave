@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
-   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Octave">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" href="favicon.ico">
-      <meta name="theme-color" content="#ede4dc">
+    <meta name="theme-color" content="#ede4dc">
     <title>Octave</title>
     <style>
         @font-face {
@@ -69,8 +69,8 @@
         /* Texture overlay */
         body::before {
             content: '';
-             position: fixed;
-  inset: 0;   
+            position: fixed;
+            inset: 0;   
             width: 100%;
             height: 100%;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
@@ -98,21 +98,28 @@
             z-index: 0;
             margin-bottom: clamp(-20px, -4vw, -30px);
         }
+
+        /* NEW: wrapper to control width and centering of tagline blocks */
+        .tagline-wrapper {
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
         
         .tagline {
-            padding: 0 1.25rem;
             margin-top: 0;
+            margin-bottom: 1.75rem; /* space between paragraphs */
             font-size: clamp(1rem, 4vw, 1.75rem);
             letter-spacing: -0.0015em;
-            line-height: 1.3;
+            line-height: 1.5;
             color: #6d5d47;
             opacity: 0;
             animation: fadeIn 2.5s ease-out 1s forwards;
             text-align: center;
             font-weight: 400;
             font-family: 'Kievit Serif', serif;
-            max-width: clamp(280px, 90vw, 580px);
-            padding: 0 1rem;
+            max-width: 100%; /* let wrapper control width */
         }
         
         .footer {
@@ -243,7 +250,7 @@
             body::before {
                 /* Ensure texture covers full viewport including safe areas */
                 position: fixed;
-               inset: 0;  
+                inset: 0;  
                 width: calc(100% + 100px);
                 height: calc(100% + 100px);
             }
@@ -252,6 +259,11 @@
                 width: clamp(225px, 75vw, 527px);
                 margin-bottom: clamp(-25px, -5vw, -37px);
             }
+
+            .tagline-wrapper {
+                max-width: 95vw;
+                padding: 0 1.25rem;
+            }
             
             .tagline {
                 font-family: 'Kievit Serif', -apple-system, serif;
@@ -259,7 +271,7 @@
                 letter-spacing: -0.015em;
                 line-height: 1.35;
                 word-spacing: 0.05em;
-                max-width: clamp(400px, 95vw, 667px);
+                max-width: 100%;
             }
             
             .footer {
@@ -299,11 +311,15 @@
                 margin-bottom: -10vw;
             }
             
+            .tagline-wrapper {
+                max-width: 90vw;
+                padding: 0 0.75rem;
+            }
+
             .tagline {
                 font-size: clamp(1.15rem, 5.75vw, 1.44rem);
-                max-width: 90vw;
+                max-width: 100%;
                 line-height: 1.4;
-                padding: 0 0.75rem;
             }
             
             .footer {
@@ -322,9 +338,13 @@
                 width: min(87.5vw, 350px);
             }
             
+            .tagline-wrapper {
+                max-width: 90vw;
+            }
+
             .tagline {
                 font-size: clamp(1.09rem, 5.52vw, 1.38rem);
-                max-width: 90vw;
+                max-width: 100%;
             }
         }
         
@@ -339,9 +359,14 @@
                 margin-bottom: -6.25vw;
             }
             
+            .tagline-wrapper {
+                max-width: 95vw;
+            }
+
             .tagline {
                 font-size: clamp(1.035rem, 4.025vw, 1.265rem);
                 margin-top: 0.5rem;
+                max-width: 100%;
             }
             
             .footer {
@@ -422,32 +447,31 @@
             </g>
         </svg>
 
- <div class="tagline-wrapper">  
-  <div class="tagline">
-    Octave Capital partners with <span class="italic-text">venture-backed and founder run technology companies</span>
-    to provide <span class="italic-text">flexible growth capital</span> and
-    <span class="italic-text">liquidity</span>.
-  </div>
+        <div class="tagline-wrapper">  
+            <div class="tagline">
+                Octave Capital partners with <span class="italic-text">venture-backed and founder run technology companies</span>
+                to provide <span class="italic-text">flexible growth capital</span> and
+                <span class="italic-text">liquidity</span>.
+            </div>
 
-  <div class="tagline">
-    Founded by <span class="italic-text">Jeremy Giffon</span> and based in
-    <span class="italic-text">New York</span>, we invest
-    <span class="italic-text">$5–50m</span> in businesses generating
-    <span class="italic-text">$5m+ in ARR</span>, providing both primary capital for growth
-    and secondary capital for founder liquidity/recapitalization. With a concentrated
-    approach of <span class="italic-text">1–3 investments per year</span>, we provide
-    dedicated focus and resources to help founders build
-    <span class="flourishing">flourishing</span> businesses.
-  </div>
+            <div class="tagline">
+                Founded by <span class="italic-text">Jeremy Giffon</span> and based in
+                <span class="italic-text">New York</span>, we invest
+                <span class="italic-text">$5–50m</span> in businesses generating
+                <span class="italic-text">$5m+ in ARR</span>, providing both primary capital for growth
+                and secondary capital for founder liquidity/recapitalization. With a concentrated
+                approach of <span class="italic-text">1–3 investments per year</span>, we provide
+                dedicated focus and resources to help founders build
+                <span class="flourishing">flourishing</span> businesses.
+            </div>
 
-  <div class="tagline">
-    Our team of software investors and operators specializes in solving the complex
-    capital structure challenges that emerge as companies scale – creating
-    <span class="italic-text">alignment</span> and <span class="italic-text">optionality</span>
-    in a broad range of outcomes.
-  </div>
-</div>
-
+            <div class="tagline">
+                Our team of software investors and operators specializes in solving the complex
+                capital structure challenges that emerge as companies scale – creating
+                <span class="italic-text">alignment</span> and <span class="italic-text">optionality</span>
+                in a broad range of outcomes.
+            </div>
+        </div>
         
     </div>
     
