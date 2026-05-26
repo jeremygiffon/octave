@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ledger — connecting…</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<style>
+  body { font: -apple-system-body, system-ui, sans-serif;
+         display:flex; align-items:center; justify-content:center;
+         min-height:100vh; margin:0; color:#222; background:#f6f6f8 }
+  .card { text-align:center; padding:24px; max-width:340px }
+  h1 { font-size:18px; font-weight:600; margin:8px 0 4px }
+  p { font-size:14px; color:#666; margin:0 }
+  .spinner { width:32px; height:32px; border:3px solid #ddd;
+             border-top-color:#333; border-radius:50%;
+             animation:spin .8s linear infinite; margin:0 auto 12px }
+  @keyframes spin { to { transform:rotate(360deg) } }
+  a { color:#333 }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="spinner"></div>
+    <h1>Returning to Ledger…</h1>
+    <p id="msg">If nothing happens, <a id="link" href="#">tap here to continue</a>.</p>
+  </div>
+<script>
+  // Pass every query-string param through to the iOS app via custom scheme.
+  // The app's ASWebAuthenticationSession catches octaveledger:// and finishes auth.
+  (function() {
+    var qs = window.location.search || '';
+    var provider = (window.location.pathname.match(/(ramp|qbo)/) || [])[1] || 'ramp';
+    var target = 'octaveledger://oauth/' + provider + '/callback' + qs;
+    document.getElementById('link').href = target;
+    setTimeout(function() { window.location.replace(target); }, 50);
+  })();
+</script>
+</body>
+</html>
