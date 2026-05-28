@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Octave">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="apple-touch-icon" href="../favicon.ico">
+    <meta name="theme-color" content="#ede4dc">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Privacy Policy — Ledger</title>
+    <style>
+        @font-face {
+            font-family: 'Kievit Serif';
+            src: url('../fonts/KievitSerif.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Kievit Serif Light Italic';
+            src: url('../fonts/KievitSerif-LightItalic.ttf') format('truetype');
+            font-weight: 300;
+            font-style: italic;
+            font-display: swap;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        html {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            background-color: #ede4dc;
+            background: linear-gradient(135deg, #ede4dc 0%, #ddd4cb 100%);
+            background-attachment: fixed;
+        }
+
+        body {
+            min-height: 100vh;
+            min-height: 100dvh;
+            width: 100%;
+            background-color: #ede4dc;
+            font-family: 'Kievit Serif', Georgia, serif;
+            color: #6d5d47;
+            position: relative;
+            padding: max(3rem, env(safe-area-inset-top)) max(1.25rem, env(safe-area-inset-right)) max(3rem, env(safe-area-inset-bottom)) max(1.25rem, env(safe-area-inset-left));
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Texture overlay — same as the home page */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+            opacity: 0.2;
+            pointer-events: none;
+            mix-blend-mode: multiply;
+            z-index: 0;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 0.7rem;
+            color: #8a7a62;
+            margin-bottom: 0.75rem;
+        }
+
+        h1 {
+            font-size: clamp(1.75rem, 6vw, 2.5rem);
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.5rem;
+        }
+
+        .updated {
+            font-family: 'Kievit Serif Light Italic', Georgia, serif;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: #8a7a62;
+            margin-bottom: 2.25rem;
+        }
+
+        h2 {
+            font-size: clamp(1.1rem, 3.5vw, 1.35rem);
+            font-weight: 400;
+            letter-spacing: -0.005em;
+            margin: 2rem 0 0.6rem;
+        }
+
+        p {
+            font-size: 1.0625rem;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            margin: 0 0 1rem 1.25rem;
+            font-size: 1.0625rem;
+        }
+
+        li { margin-bottom: 0.5rem; }
+
+        a {
+            color: #6d5d47;
+            text-decoration: none;
+            border-bottom: 0.5px solid #b6a890;
+            transition: border-color 0.3s ease;
+        }
+
+        a:hover { border-color: #6d5d47; }
+
+        .divider {
+            border: none;
+            border-top: 0.5px solid #c9bca8;
+            margin: 2.5rem 0 1.5rem;
+        }
+
+        .footer {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+            margin: 2rem auto 0;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #8a7a62;
+        }
+
+        .footer a { border: none; }
+        .footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <main class="content">
+        <span class="eyebrow">Ledger</span>
+        <h1>Privacy Policy</h1>
+        <p class="updated">Last updated 28 May 2026</p>
+
+        <p>
+            Ledger is a personal-use iPhone application used to track finances by connecting to a
+            QuickBooks Online account. It is built and operated by Octave Capital for private,
+            individual use. This policy explains what data the app handles and how it is used.
+        </p>
+
+        <h2>Information we collect</h2>
+        <p>
+            When you connect Ledger to QuickBooks Online, you authorize access through Intuit's OAuth
+            sign-in flow. Ledger then reads financial data from your QuickBooks Online company, which
+            may include:
+        </p>
+        <ul>
+            <li>Bank and account balances</li>
+            <li>Profit &amp; loss, cash flow, and other financial reports</li>
+            <li>Transactions, vendors, and related accounting records</li>
+            <li>OAuth access and refresh tokens issued by Intuit, and the associated company (realm) identifier</li>
+        </ul>
+        <p>
+            Ledger does not ask for, collect, or store any other personal information. There are no
+            accounts to create, and the app does not use analytics or advertising trackers.
+        </p>
+
+        <h2>How we use your information</h2>
+        <p>
+            Financial data is used for one purpose only: to display and track personal finances inside
+            the app, on your device, for you. It is not used for any other purpose, and it is never
+            sold, rented, or used for advertising.
+        </p>
+
+        <h2>How your information is stored</h2>
+        <p>
+            OAuth tokens are stored securely in the iOS Keychain on your device. All communication
+            with Intuit's QuickBooks Online API happens over encrypted HTTPS connections. Financial
+            data is fetched on demand for display and is not retained on any third-party server
+            operated by us.
+        </p>
+
+        <h2>Sharing your information</h2>
+        <p>
+            We do not share your data with any third parties. The only external service the app
+            communicates with is Intuit / QuickBooks Online, which is the source of your data and is
+            governed by Intuit's own privacy policy. We do not transmit your financial data to anyone
+            else.
+        </p>
+
+        <h2>Revoking access</h2>
+        <p>
+            You can disconnect Ledger at any time from within the app, or by revoking the app's access
+            from your Intuit account settings. Doing so invalidates the stored tokens and ends the
+            app's access to your QuickBooks Online data.
+        </p>
+
+        <h2>Children's privacy</h2>
+        <p>
+            Ledger is not directed to children and is not intended for use by anyone under 13.
+        </p>
+
+        <h2>Changes to this policy</h2>
+        <p>
+            If this policy changes, the updated version will be posted on this page with a revised
+            "last updated" date.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+            Questions about this policy can be sent to
+            <a href="mailto:jeremy@octavecap.com">jeremy@octavecap.com</a>.
+        </p>
+
+        <hr class="divider">
+    </main>
+
+    <div class="footer">
+        920 Broadway, NYC •&nbsp;<a href="mailto:jeremy@octavecap.com">jeremy@octavecap.com</a>
+    </div>
+</body>
+</html>
